@@ -4,13 +4,12 @@ cd unlabelled/
 
 for FILE in $(ls);
 do
-	echo $FILE
 	name=$(echo "$FILE"| cut -f 1 -d '.')
 	
 	LABEL="${name}.txt"
-	echo "looking for $LABEL ..."
+	echo -n  "$FILE : looking for $LABEL ... "
 	if [ -f $LABEL ]; then
-		echo "found"
+		echo "found.  Moving to labelled"
 		mv $FILE ../labelled/
 		mv $LABEL ../labelled/
 	else
