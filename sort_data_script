@@ -1,0 +1,15 @@
+echo "Sorting Data:"
+
+for FILE in $(ls unlabelled/);
+do
+	echo $FILE
+	name=$(echo "$FILE"| cut -f 1 -d '.')
+	
+	TXT="${name}.txt"
+	echo "looking for ${TXT} ..."
+	if [ -e $TXT ]; then
+		echo "y"
+	else
+		echo "n"
+	fi
+done;
